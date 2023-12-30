@@ -434,11 +434,11 @@ def xbar_icon(vms: dict = {}):
 
     :param dict vms: Data about Lima VMs
     """
-    menuBarIcon = f"🐋❗ | color={STOPPED_VM_COLOR}"
+    menuBarIcon = f"🖥️ 🔴 | color={STOPPED_VM_COLOR}"
     for vm in vms:
         logging.debug("vm: %s", vm)
         if vms[vm]["status"] == "Running":
-            menuBarIcon = f"🐋 🏃 | color={RUNNING_VM_COLOR}"
+            menuBarIcon = f"🖥️ 🟢 | color={RUNNING_VM_COLOR}"
             break
     print(menuBarIcon)
     print("---")
@@ -533,7 +533,6 @@ def vmMenu(vmData: dict = {}):
     logging.debug("vmData: %s", vmData)
 
     for vm in vmData:
-
         logging.debug("status %s", vmData[vm]["status"])
         if vmData[vm]["status"] != "Running":
             print("%s VM is stopped | color=%s" % (vm, STOPPED_VM_COLOR))
